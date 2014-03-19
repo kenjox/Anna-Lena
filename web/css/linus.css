@@ -1,0 +1,608 @@
+*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+
+
+
+html {
+	 -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+
+* {    
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;     
+
+   	-webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;    
+}
+
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+    font-family: avenir, helvetica, sans-serif;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+a {
+    color: #2ea2cc;
+}
+
+a:visited {
+    color: #2ea2cc;
+}
+
+a:hover {
+    color: #000;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Grid x 16 - RESPONSIVE LIFE
+   ========================================================================== */
+
+
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;margin:0;padding:0}article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object{display:block}a img{border:0}figure{position:relative}figure img{width:100%}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px;
+    position: relative;
+    display: block;
+    float: left;
+
+}
+
+.row {
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        padding: 0 20px;
+        height: auto;
+        clear: both;
+}
+
+.fullscreen {
+        width: 100%;
+        min-width: 100%;
+        margin: 0 auto;
+        padding: 0 0%;
+        display: block;
+        clear: both;
+}
+
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, .thirteencol, .fourteencol, .fifteencol {
+        position: relative;
+        margin-right: 1.4%;
+        float: left;
+        }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol, .thirteencol, .fourteencol, .fifteencol {
+    width: 100%;
+}
+
+
+.onecol:last-child, .twocol:last-child, .threecol:last-child, .fourcol:last-child, .fivecol:last-child, .sixcol:last-child, .sevencol:last-child, .eightcol:last-child, .ninecol:last-child, .tencol:last-child, .elevencol:last-child, .twelvecol:last-child, .thirteencol:last-child, .fourteencol:last-child, .fifteencol:last-child, .sixteencol:last-child {
+        margin-right: 0px !important;
+        }
+
+@media only screen and (min-width: 480px) {
+    .onecol { width: 6.866%; }
+    .twocol { width: 15.33%; }
+    .threecol { width: 23.8%; }
+    .fourcol { width: 32.26%; }
+    .fivecol { width: 40.73%; }
+    .sixcol { width: 49.2%; }
+    .sevencol { width: 57.66%; }
+    .eightcol { width: 66.13%; }
+    .ninecol { width: 74.6%; }
+    .tencol { width: 83.06%; }
+    .elevencol { width: 91.53%; }
+    .twelvecol { width: 100%; float: left; }
+}
+
+
+
+
+.first {
+margin-left: 0px !important;
+}
+
+.last {
+margin-right: 0px !important;
+}
+
+img, object, embed {
+width: 100%;
+max-width: 100%;
+height: auto;
+}
+
+iframe {
+        max-width: 100%;
+}
+
+/* ==========================================================================
+   My Classes and ID's 
+   ========================================================================== */
+
+.notice {
+    display: block;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+.warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+.danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+/* ==========================================================================
+   My Classes and ID's 
+   ========================================================================== */
+
+
+#leftContent {
+    background-color: rgb(27, 30, 36);
+    min-height: 100%;
+    min-width: 250px;
+    max-width: 250px;
+    display: inline-block;
+    float: left;
+    position: fixed;
+    padding: 23px;
+}
+
+
+#leftContent h1 {
+    color: #fff;
+    font-size: 1.4em;
+}
+
+#leftContent h2 {
+    color: #fff;
+    font-size: 1em;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.mainLeftNav {
+    list-style: none;
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.mainLeftNav li {
+    color: rgb(111, 123, 138);
+    padding: 10px 0px;
+    font-size: 1.2em;
+}
+
+.mainLeftNav .navSection {
+    color: rgb(111, 123, 138);
+    padding: 15px 0 8px 0px;
+    text-transform: uppercase;
+    font-size: 0.6em;
+    border-bottom: 1px solid rgba(111,123,138,0.4);
+    font-weight: 600;
+}
+
+.mainLeftNav li a {
+    color: rgb(111, 123, 138);
+    text-decoration: none;
+
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.mainLeftNav li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+#rightContent {
+    background-color: rgb(229,233,236);
+    margin-left: 250px;
+    overflow: auto;
+    position: relative;
+    min-height: 100%;
+}
+
+#rightContent .content {
+    padding: 30px;
+}
+
+#adminSubNav {
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+
+#adminSubNav h1 {
+    font-size: 1.8em;
+    font-weight: 400;
+    margin: 0 0 14px 6px;
+}
+
+.breadcrumbs {
+    list-style: none;
+    list-style-type: none;
+    font-size: 0.8em;
+    margin: 0 0 10px 0;
+}
+
+.breadcrumbs li {
+    display: inline-block;
+    text-transform: uppercase;
+    color: #7b7d82;
+}
+
+
+.breadcrumbs .active {
+    font-weight: bold;
+    padding-left: 8px;
+    text-transform: capitalize;
+    color: #333;
+}
+
+.breadcrumbs .active:before {
+    content: '/';
+    padding-right: 10px;
+}
+
+.grid {
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+    display: inline-block;
+}
+
+.simple {
+    border: 1px solid #d7d7d7;
+}
+
+.gridTitle {
+    padding-bottom: 14px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.gridTitle h4 {
+    font-weight: 400;
+} 
+
+#userNavBar{
+   margin-bottom: 20px;
+}
+
+#userNavBar ul li{
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 20px;
+}
+
+
+
+
+/* ==========================================================================
+   FORMS 
+   ========================================================================== */
+
+.formCanvas {
+	width: 54%;
+	margin: 0 auto;
+	margin-top: 20px;
+	margin-bottom: 100px;
+	background-color: #fff;
+    padding: 0 50px 50px 50px;
+
+}
+
+.formCanvas label, .formCanvas input {
+	display: inline-block;
+}
+
+.formCanvas label, .formCanvas input, .textField, .memberField, .captchaField  {
+	width: 100%;
+}
+
+.formCanvas label {
+	margin-top: 20px;
+	font-weight: bold;
+}
+.formCanvas input {
+	padding: 10px;
+	font-size: 16px;
+}
+
+.memberField {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 10px;
+    font-size: 16px;
+    border:1px solid #000;
+    text-indent: 2px;
+    border-radius: 0px;
+}
+
+.submitButton {
+	background-color: #5588b5;
+	border: none;
+	color: #fff;
+	text-align: center;
+	margin: 20px 0 60px 0;
+
+}
+
+
+.sortable {
+    width: 100%;
+}
+
+.alt {
+    text-align: left;
+}
+
+.fileList tr {
+    height: 40px;
+}
+
+.fileList tr td a {
+    color: #333;
+    font-weight: normal;
+    padding: 10px;
+
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+    -o-transition: all 200ms linear;
+    -ms-transition: all 200ms linear;
+    transition: all 200ms linear;
+}
+
+.fileList tr td a:hover {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.fileList tr td:first-child {
+    padding-left: 16px;
+}
+
+.fileList tr:nth-child(even) {
+    background-color: #e6e6e6;
+} 
+
+.heading {
+    background-color:#ebccd1;
+    border: none;
+    color: #fff;
+    text-align: center;
+    margin: 44px 0 29px 0;
+    padding: 12px;
+}
+
+
+.intro p {
+	margin: 0 0 2em 0;
+	float: left;
+	display: block;
+	width: 100%;
+}
+
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/* Prevent callout */
+
+.nocallout {
+    -webkit-touch-callout: none;
+}
+
+.pressed {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* A hack for HTML5 contenteditable attribute on mobile */
+
+textarea[contenteditable] {
+    -webkit-appearance: none;
+}
+
+/* A workaround for S60 3.x and 5.0 devices which do not animated gif images if
+   they have been set as display: none */
+
+.gifhidden {
+    position: absolute;
+    left: -100%;
+}
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: 0;
+    direction: ltr;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-indent: -999em;
+}
+
+.ir br {
+    display: none;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/**
+ * Clearfix helper
+ * Used to contain floats: h5bp.com/q
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+label {
+    cursor: pointer;
+}
+
+
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+       only screen and (min-resolution: 144dpi) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+
