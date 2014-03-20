@@ -7,6 +7,7 @@ class Track extends Eloquent {
 	protected $hidden = array('id','updated_at','created_at');
 
 	public static $rules = array(
-		'title' => 'required'
+		'title' => 'required',
+		'track' =>  'required'
 	);
 }

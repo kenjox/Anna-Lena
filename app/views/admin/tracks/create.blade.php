@@ -17,10 +17,6 @@
 				<label for="track">Choose track</label>
 				<input type="file" name="track">
 				
-				<label>OR</label>
-
-				<label for="trackUrl">Paste Track URL</label>
-				<input type="url" name="trackUrl" id="trackUrl" value="{{ Input::old('trackUrl') }}">
 			</p>
 	
 			<input type="submit" value="Ladda upp" class="submitButton">

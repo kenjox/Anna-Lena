@@ -29,11 +29,11 @@ class FilesImpl implements FilesInterface
 			$destination = $this->photoPath();
 
 			$image = Image::make($file->getRealPath());
-			$image->resize(645,null,true);
+			$image->resize(1500,null,true)->crop(1280,992)->resize(640,null,true);
 
 			File::exists($this->photoPath()) or File::makeDirectory($this->photoPath());
 
-			$image->save($this->photoPath().$fileName);
+			$image->save($this->photoPath().$fileName, 75);
 
 			return $fileName;
 
