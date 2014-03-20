@@ -46,12 +46,21 @@ class FilesImpl implements FilesInterface
 	 * @return null       
 	 */
 	
-	public function removeFile($filePath)
+	public function removeFile($fileName)
 	{
+		$filePath = $this->photoPath().$fileName;
 		
+		if( File::exists( $filePath ) )
+		{
+			File::delete($filePath);
+		}
 	}
 
-
+	/**
+	 * Helper function specifying file storage path
+	 * @return string path to file in server
+	 */
+	
 	private function photoPath()
 	{
 		return public_path().'/uploads/photos/';

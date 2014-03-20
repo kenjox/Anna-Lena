@@ -1,6 +1,7 @@
 <?php
 
 
+
 //API for the app
 Route::group(array('prefix'=>'api/v1'), function(){
 	
@@ -51,12 +52,14 @@ Route::group(array('prefix'=>'admin','before'=>'auth'), function(){
 
 	//Edit routes
 	Route::get('news/{newsId}',array('as'=>'news.edit','uses'=>'NewsController@edit'));
-
 	Route::put('news/{newsId}',array('as'=>'news.update','uses'=>'NewsController@update'));
 
+	Route::get('tours/{tourId}',array('as'=>'tours.edit','uses'=>'ToursController@edit'));
+	Route::put('tours/{tourId}',array('as'=>'tours.update','uses'=>'ToursController@update'));
+
 	//Delete routes
-	
 	Route::delete('news/{newsId}',array('as'=>'news.destroy','uses'=>'NewsController@destroy'));
+	Route::delete('tours/{tourId}',array('as'=>'tours.destroy','uses'=>'ToursController@destroy'));
 
 
 });

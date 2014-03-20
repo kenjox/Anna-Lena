@@ -21,7 +21,7 @@
 						<td><a href="{{ route('news.edit',array('newsId'=>$article->id)) }}">Edit</a></td>
 						<td>
 							{{ Form::open(array('route'=>array('news.destroy',$article->id),'method'=>'DELETE')) }}
-								{{ Form::submit('Delete') }}
+								{{ Form::submit('Delete',array('id'=>'deleteBtn')) }}
 							{{ Form::close() }}
 
 						</td>

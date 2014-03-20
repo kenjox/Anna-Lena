@@ -7,21 +7,21 @@
 	<div class="formCanvas">
 
 		
-		{{ Form::model($news, array('route'=>array('news.update',$news->id),'method'=>'PUT','files'=>true)) }}	
-			<h2>Edit news</h2>
+		{{ Form::model($tours, array('route'=>array('tours.update',$tours->id),'method'=>'PUT','files'=>true)) }}	
+			<h2>Edit tours</h2>
 			
-			@if($news->imageUrl )
-			   {{HTML::image($news->imageUrl,$news->title,array('style'=>'width:300px;') ) }}
+			@if($tours->imageUrl )
+			   {{HTML::image($tours->imageUrl,$tours->title,array('style'=>'width:300px;') ) }}
 			@endif
 
 			<label for="photo">Choose photo</label>
 			<input type="file" name="image">
 			
 			<label for="title">Title</label>
-			<input type="text" name="title" id="title" value="{{ $news->title }}">
+			<input type="text" name="title" id="title" value="{{ $tours->title }}">
 
 			<label for="body">Body</label>
-			<textarea class="memberField" name="body" rows="10">{{ $news->body }}</textarea>
+			<textarea class="memberField" name="body" rows="10">{{ $tours->body }}</textarea>
 			
 			<input type="submit" value="Update"  class="submitButton">
 	

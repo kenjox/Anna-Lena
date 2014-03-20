@@ -8,6 +8,7 @@ class Tour extends Eloquent {
 
 	public static $rules = array(
 		'title' => 'required',
-		'body'  => 'required'
+		'body'  => 'required',
+		'image' => 'required|mimes:jpg,jpeg,png,JPG,JPEG,PNG'
 	);
 }

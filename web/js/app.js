@@ -1,19 +1,21 @@
 
 $(document).ready(function() {
    
- // //  $('.delete-event').on('click', function(e) {
+  $('#deleteBtn').on('click', function(e) {
+
 						
-	// // 	 var message = $(this).attr('data-content');
-	// //       var choice = confirm(message);
+		 var message = "Are you sure you want to delete this post?";
 
-	// //       if( choice == true){
-	// //       	return true;
-	// //       }else{
-	// //       	e.preventDefault();
-	// //       	return false;
-	// //       }
+	      var choice = confirm(message);
 
-	// // });
+	      if( choice == true){
+	      	return true;
+	      }else{
+	      	e.preventDefault();
+	      	return false;
+	      }
+
+	});
 
  // //  $('div.notice success').delay(4000).slideUp();
  

@@ -105,6 +105,22 @@ class NewsController extends BaseController {
 			$news->title = Input::get('title');
 			$news->body = Input::get('body');
 
+			if (Input::hasFile('image') ) 
+			{
+				//Removes previous photo
+				$this->file->removeFile($news->fileName);
+
+				//Update with new photo
+
+				$fileName = $this->file->saveFile('image');  // uploads the file and returns file name for saving to DB
+
+				$imagePath = URL::to('/').'/uploads/photos/'.$fileName;
+				$news->imageUrl = $imagePath;
+				$news->fileName = $fileName;
+
+			}
+
+
 			$news->save(); 
 
 			return Redirect::route('news.edit',$newsId)->withSuccess('News updated successfully!!');
@@ -120,27 +136,18 @@ class NewsController extends BaseController {
 
 		$fileName = $news->fileName;
 
-		$fullPath = $this->photoPath().$fileName;
-
-		if( File::exists( $fullPath ) )
+		//Remove file from DB
+		//Then remove from server folder
+		
+		if( $news->delete() )
 		{
-			File::delete($fullPath);
-			$news->delete();
+			$this->file->removeFile($fileName);
 		}
+
 
 		return Redirect::route('news')->withSuccess("News removed successfully!");
 
-
-
 	}   
-
-
-	  
- 
-
-
-
-
 
 	
 
