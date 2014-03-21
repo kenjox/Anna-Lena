@@ -1,6 +1,19 @@
 <?php
 
+use Anna\Tracks\TracksInterface;
+
+
 class TracksController extends BaseController {
+
+	
+
+	protected $track;
+
+	public function __construct(TracksInterface $track)
+	{
+		$this->track = $track;
+	}
+
 
 	/**
 	 * Display a listing of the resource.
@@ -29,6 +42,7 @@ class TracksController extends BaseController {
 	
 	public function store()
 	{
+	
 		$validation = Validator::make(Input::all(),Track::$rules);
 
 		if ( $validation->fails() ) 
@@ -43,26 +57,12 @@ class TracksController extends BaseController {
 			$tracks->title = Input::get('title');
 			$tracks->artist = Config::get('app.ARTIST_NAME');
 
-			if (Input::hasFile('track') ) 
-			{
-				$file = Input::file('track');
-				
-				$fileOriginalName = str_replace(' ', '', $file->getClientOriginalName());
+			$trackName = $this->track->addTrack('track');
 
-				$fileName = time().'-'.$fileOriginalName;
+			$trackPath = URL::to('/').'/uploads/tracks/'.$trackName;
 
-				$destination = public_path().'/uploads/tracks/';
-
-				$file->move($destination,$fileName);
-
-				$trackPath = URL::to('/').'/uploads/tracks/'.$fileName;
-
-				$tracks->trackUrl = $trackPath;
-			}
-			else{
-				$tracks->trackUrl = Input::get('trackUrl');
-			}
-
+			$tracks->trackUrl = $trackPath;
+			$tracks->trackName = $trackName; 
 			
 			$tracks->save();
 
@@ -74,7 +74,74 @@ class TracksController extends BaseController {
 
 	public function displayList()
 	{
-		return View::make('admin.tracks.listTracks');
+		$tracks = Track::orderBy('created_at','DESC')->get();
+
+		return View::make('admin.tracks.listTracks',compact('tracks'));
+	}
+
+	public function edit($trackId)
+	{
+		$track = Track::findOrFail($trackId);
+
+		return View::make('admin.tracks.edit',compact('track'));
+	}
+
+	public function update($trackId)
+	{
+		$rules = array(
+			'title' => 'required',
+		);
+
+		$validation = Validator::make(Input::all(), $rules);
+
+		if($validation ->fails())
+		{
+			return Redirect::back()->withErrors($validation->messages()->all())->withInput();
+		}
+		else
+		{
+			$track = Track::findOrFail($trackId);
+
+			$track->title = Input::get('title');
+
+			if (Input::hasFile('track') ) 
+			{
+				//Removes previous track
+				$this->track->removeTrack($track->trackName);
+
+				//Update with new track
+
+				$trackName = $this->track->addTrack('track');  // uploads the file and returns file name for saving to DB
+
+				$imagePath = URL::to('/').'/uploads/tracks/'.$trackName;
+				$track->trackUrl = $imagePath;
+				$track->trackName = $trackName;
+
+			}
+
+
+			$track->save(); 
+
+			return Redirect::route('tracks.edit',$trackId)->withSuccess('Track updated successfully!!');
+		}
+	}
+
+	public function destroy($trackId)
+	{
+		$track = Track::findOrFail($trackId);
+
+		$trackName = $track->trackName;
+
+		//Remove file from DB
+		//Then remove from server folder
+		
+		if( $track->delete() )
+		{
+			$this->track->removeTrack($trackName);
+		}
+
+
+		return Redirect::route('tracks');
 	}
 
 	

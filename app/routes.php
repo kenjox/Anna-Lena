@@ -57,9 +57,14 @@ Route::group(array('prefix'=>'admin','before'=>'auth'), function(){
 	Route::get('tours/{tourId}',array('as'=>'tours.edit','uses'=>'ToursController@edit'));
 	Route::put('tours/{tourId}',array('as'=>'tours.update','uses'=>'ToursController@update'));
 
+	Route::get('tracks/{trackId}',array('as'=>'tracks.edit','uses'=>'TracksController@edit'));
+	Route::put('tracks/{trackId}',array('as'=>'tracks.update','uses'=>'TracksController@update'));
+
+
 	//Delete routes
 	Route::delete('news/{newsId}',array('as'=>'news.destroy','uses'=>'NewsController@destroy'));
 	Route::delete('tours/{tourId}',array('as'=>'tours.destroy','uses'=>'ToursController@destroy'));
+	Route::delete('tracks/{trackId}',array('as'=>'tracks.destroy','uses'=>'TracksController@destroy'));
 
 
 });

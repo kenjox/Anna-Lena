@@ -1,13 +1,13 @@
 <?php
 
-use Anna\Files\FilesInterface; 
+use Anna\Images\ImagesInterface; 
 
 class ToursController extends BaseController {
 
 	
 	protected $file;
 
-	public function __construct(FilesInterface $file)
+	public function __construct(ImagesInterface $file)
 	{
 		$this->file = $file;
 

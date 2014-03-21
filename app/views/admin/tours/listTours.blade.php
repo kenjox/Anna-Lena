@@ -38,7 +38,3 @@
 
 	</section>
 @stop
-
-@section('scripts')
-	 @include('partials.success.successMessages')
-@stop
