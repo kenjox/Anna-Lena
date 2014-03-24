@@ -38,12 +38,15 @@ class NewsController extends BaseController {
 	public function store()
 	{
 		
+		dd(Input::all());
 
 		$validation = Validator::make(Input::all(),News::$rules);
 
 		if ( $validation->fails() ) 
 		{
-			return Redirect::back()->withInput()->withErrors($validation->messages());
+			//return Redirect::back()->withInput()->withErrors($validation->messages());
+			
+			$content = array('errors'=>$validation->messages()->all());
 		}
 		else
 		{	
@@ -60,9 +63,20 @@ class NewsController extends BaseController {
 
 			$news->save();
 
-			return Redirect::route('news.create')->withSuccess('News created successfully!');
+			$content = array(
+				'success' => array(
+					// Set the message that will be displayed to the user using Humane.js
+					'message' => 'You are now registered!',
+					// Set the URL to which the user will be redirected to
+					'url' => 'http://anna.dev:8080/admin/news/'
+				)
+			);
+
+			//return Redirect::route('news.create')->withSuccess('News created successfully!');
 
 		}
+
+		return Response::json($content,200);
 	}
 
 	public function photoPath()

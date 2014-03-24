@@ -1,69 +1,54 @@
 
-$(document).ready(function() {
-   
-  $('#deleteBtn').on('click', function(e) {
+$(function() {
 
-						
-		 var message = "Are you sure you want to delete this post?";
+	//News Form
+    var newsForm= $('#news-form');
+    var spinArea        = $('#spin-area');
 
-	      var choice = confirm(message);
+    newsForm.submit(function(e){
+      e.preventDefault();
 
-	      if( choice == true){
-	      	return true;
-	      }else{
-	      	e.preventDefault();
-	      	return false;
-	      }
+      if(newsForm.parsley().isValid()){
+        // Run the spinner
+        spinArea.spin('large');
 
-	});
+        // Send a POST AJAX request to the URL of the application
+        $.ajax({
+            type: "POST",
+            url: newsForm.attr('action'),
+            data: newsForm.serialize(),
+            dataType: "json"
+          })
+          .done(function(response) {
+            if (response.success) {
 
- // //  $('div.notice success').delay(4000).slideUp();
- 
- // //News form section
- // $('#news-form').submit(function(e){
- // 	e.preventDefault();
-    
- //    var spinner   = $("#spin-area");
- //    var newsForm = $("#news-form"); 
+              humane.log(response.success.message, 
+                { addnCls: 'humane-flatty-success'}, 
 
- //  //   spinner.spin({
- //  //   	length: 7,
-	// 	// width : 12,
-	// 	// radius: 10,
-	// 	// color : '#4679bd'
- //  //   });
-
- //  //   $.ajax({
- //  //   	type     :"POST",
- //  //   	url      : newsForm.attr('action'),
- //  //   	data     : newsForm.serialize(),
- //  //   	dataType : "json"
- //  //   })
- //  //   .done(function(response){
- //  //   	if(response.errors)
- //  //   	{
- //  //   		humane.log(response.errors,{addnCls:'humane-flatty-error',timeout:3000});
- //  //   	}
- //  //   	else
- //  //   	{
- //  //   		humane.log("News added successfully!",{addnCls:'humane-flatty-success',timeout:3000});
- //  //   	}
- //  //   })
- //  //   .fail(function(){
-
- //  //   })
- //  //   .always(function(){
- //  //   	spinner.spin(false);
- //  //   });
+                
+                function(){
+                  window.location = response.success.url;
+                } 
+              );
+            } else {
+              humane.log(response.errors,{ addnCls: 'humane-flatty-error'});
+              console.log(response);
+            }
+          })
+          .fail(function () {
+            humane.log('An error has occured, please try again',{ addnCls: 'humane-flatty-error'});
+          })
+          .always(function() {
+            spinArea.spin(false);
+          });
+      }
+      
+    });
 
 
+	//Login  Form
+	
+	
 
- // });
-
-
-
-
-
-
-});
+  });
 

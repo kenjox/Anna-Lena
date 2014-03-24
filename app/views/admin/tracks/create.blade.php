@@ -6,16 +6,16 @@
 
 	<div class="formCanvas">
 
-		{{ Form::open(array('route'=>'tracks.store','class'=>'vertical','files'=>true)) }}
+		{{ Form::open(array('route'=>'tracks.store','class'=>'vertical','files'=>true,'data-parsley-validate'=>true)) }}
 			
 			<h2>Add new track</h2>
 			<label for="title">Title</label>
-			<input type="text" name="title" id="title" value="{{ Input::old('title') }}">
+			<input type="text" name="title" id="title" value="{{ Input::old('title') }}" required>
 			
 			<p>
 				
 				<label for="track">Choose track</label>
-				<input type="file" name="track">
+				<input type="file" name="track" required>
 				
 			</p>
 	

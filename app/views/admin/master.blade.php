@@ -47,7 +47,6 @@
 		<h2>Videos</h2>
 		<ul class="mainLeftNav">
 			<li><a href="{{ route('videos.create') }}">Add video</a></li>
-			<li><a href="{{ route('videos') }}">List videos</a></li>
 		</ul>
 				
 		<ul class="mainLeftNav">
@@ -77,6 +76,7 @@
 </div>
 
 {{ HTML::script('js/vendor/jquery.min.js') }}
+{{ HTML::script('js/vendor/parsley.min.js') }}
 {{ HTML::script('js/vendor/humane.min.js') }}
 {{ HTML::script('js/vendor/spin.min.js') }}
 {{ HTML::script('js/vendor/jquery.spin.js') }}

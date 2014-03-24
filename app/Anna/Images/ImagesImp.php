@@ -15,7 +15,7 @@ class ImagesImpl implements ImagesInterface
 	 * @return string  filename
 	 */
 	
-	public function saveFile($fieldName)
+	public function saveFile($fieldName,$height = 1500)
 	{
 		
 		if (Input::hasFile($fieldName) ) 
@@ -29,7 +29,7 @@ class ImagesImpl implements ImagesInterface
 			$destination = $this->photoPath();
 
 			$image = Image::make($file->getRealPath());
-			$image->resize(1500,null,true)->crop(1280,992)->resize(640,null,true);
+			$image->resize($height,null,true)->crop(1280,992)->resize(640,null,true);
 
 			File::exists($this->photoPath()) or File::makeDirectory($this->photoPath());
 

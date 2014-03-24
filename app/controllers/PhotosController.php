@@ -66,8 +66,10 @@ class PhotosController extends BaseController {
 
 
 	public function displayList()
-	{
-		return View::make('admin.photos.listPhotos');
+	{	
+		$photos = Photo::orderBy('created_at','DESC')->get();
+
+		return View::make('admin.photos.listPhotos',compact('photos'));
 	}
 
 	

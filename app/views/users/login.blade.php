@@ -14,13 +14,13 @@
 
 			@include('partials/success/successMessages')
 
-			{{ Form::open(array('route'=>'users.login','class'=>'vertical') ) }}
+			{{ Form::open(array('route'=>'users.login','class'=>'vertical','data-parsley-validate'=>true) ) }}
 				
 					<label for="email" value="Email">Email</label>
-					<input type="text" name="email" id="email" value="{{ Input::old('email')}}">
+					<input type="text" name="email" id="email" value="{{ Input::old('email')}}" required>
 				
 					<label for="password" value="Password">Password</label>
-					<input type="password" name="password" id="password">
+					<input type="password" name="password" id="password" required>
 				
 					<input type="submit" value="Logga in" class="submitButton">
 			{{ Form::close() }}
